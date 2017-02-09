@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd"
+	default-init-method="init" default-destroy-method="destroy">
+
+
+	<bean id="person" class="com.caveofprogramming.spring.test.Person"
+		scope="singleton" init-method="onCreate" destroy-method="onDestroy">
+		<constructor-arg value="777" type="int" index="0"
+			name="id"></constructor-arg>
+		<constructor-arg value="Cody" type="String" index="1"
+			name="name">
+		</constructor-arg>
+		<property name="taxId" value="321"></property>
+		<property name="address" ref="address"></property>
+	</bean>
+
+	<bean id="address" class="com.caveofprogramming.spring.test.Address">
+		<constructor-arg index="0" name="street" value="1 Church Lane"></constructor-arg>
+		<constructor-arg index="1" name="postcode" value="9876"></constructor-arg>
+	</bean>
+
+</beans>
